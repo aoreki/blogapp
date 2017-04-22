@@ -1,26 +1,11 @@
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
-			<form class="form-horizontal">
-				<div class="control-group">
-					 <label class="control-label" for="inputEmail">邮箱</label>
-					<div class="controls">
-						<input id="inputEmail" type="text" />
-					</div>
-				</div>
-				<div class="control-group">
-					 <label class="control-label" for="inputPassword">密码</label>
-					<div class="controls">
-						<input id="inputPassword" type="password" />
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="controls">
-						 <label class="checkbox"><input type="checkbox" /> Remember me</label>
-						 <button class="btn" type="submit">登陆</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+<div style="width:200px">
+	<%= form_for @user do |f| %>
+		<div class="form-group">
+			<label>Your Name:</label>
+			<%= f.text_field :name , class:"form-control"%><br/>
+			<label>Your Email:</label>
+			<%= f.text_field :email , class:"form-control"%><br/>
+	  </div>
+	  <%= f.submit 'Sign up',class:"btn btn-primary"%>
+	<% end %>
 </div>
