@@ -10,6 +10,7 @@ footer {
 	padding-top: 5px;
 	border-top: 1px solid #eaeaea;
 	color: #777;
+	width: 100%;
 	a {
 		color:#555;
 		&:hover {
@@ -27,4 +28,15 @@ footer {
 			margin-left: 15px;
 		}
 	}
+	&.bottom {
+		bottom: 0;
+		position: absolute;
+	}
+	nav {
+		float: right;
+	}
+}
+
+h1 {
+	text-align: center;
 }
