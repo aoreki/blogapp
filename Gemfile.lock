@@ -53,7 +53,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -196,6 +196,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.6)
   byebug
   coffee-rails (= 4.2.1)
+  coffee-script-source (= 1.8.0)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.5.0)
