@@ -1,11 +1,9 @@
-<div style="width:200px">
-	<%= form_for @user do |f| %>
-		<div class="form-group">
-			<label>Your Name:</label>
-			<%= f.text_field :name , class:"form-control"%><br/>
-			<label>Your Email:</label>
-			<%= f.text_field :email , class:"form-control"%><br/>
-	  </div>
-	  <%= f.submit 'Sign up',class:"btn btn-primary"%>
-	<% end %>
-</div>
+<%= form_for @user do |f| %>
+	<div class="form-group col-xs-4">
+		<label>Your Name:</label>
+		<%= f.text_field :name , class:"form-control"%><br/>
+		<label>Your Email:</label>
+		<%= f.text_field :email , class:"form-control"%><br/>
+		<%= f.submit 'Sign up',class:"btn btn-primary col-xs-4"%>
+	</div>
+<% end %>
