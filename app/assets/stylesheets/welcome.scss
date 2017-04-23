@@ -42,6 +42,7 @@ h1 {
 	text-align: center;
 }
 
+/*debug*/
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
@@ -49,7 +50,6 @@ $gray-medium-light: #eaeaea;
 	box-sizing: border-box;
 }
 
-/* miscellaneous */
 .debug_dump {
 	clear: both;
 	float: left;
@@ -85,6 +85,7 @@ aside {
 	}
 }
 
+/*avatar*/
 .gravatar {
 	float: left;
 	margin-right: 10px;
@@ -94,6 +95,7 @@ aside {
 margin-top: 15px;
 }
 
+/*error field*/
 .field_with_errors {
 	@extend .has-error;
 	.form-control {
