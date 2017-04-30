@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get '/logout',to:'sessions#destroy'
   resources :articles do
   	resources :comments
   end
