@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
   		login(user)
   		remember(user) if params[:session][:remember_me] == '1'
-  		redirect_to user
+      redirect_to session[:forwarding_url] || user
+      session.delete(:forwarding_url)
   	else
   		flash.now[:danger] = '用户名不存在或密码不正确' 
   		render 'new'

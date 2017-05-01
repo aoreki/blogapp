@@ -45,6 +45,7 @@ class UsersController < ApplicationController
 	  end
     def login_user
       unless login?
+        session[:forwarding_url] = request.original_url if request.get?
         flash[:danger] = 'Please Login First'
         redirect_to new_session_path
       end
