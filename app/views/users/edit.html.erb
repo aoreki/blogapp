@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+	<div class="form-group col-xs-4">
+	  <%= render 'shared/error_messages' ,record:@user%>
+		<%= render 'form',f:f%>
+		<%= f.submit 'Save changes',class:"btn btn-primary col-xs-4"%>
+	</div>
+<% end %>

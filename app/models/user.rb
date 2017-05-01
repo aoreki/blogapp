@@ -6,7 +6,7 @@ class User < ApplicationRecord
 	validates :name, presence: true, length: {maximum:255}, uniqueness: true
 	validates :email, presence: true, format: {with: /.+@.+/}, 
 		uniqueness: { case_sensitive: false }
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 },allow_nil:{on: :update}
 	has_secure_password
 	# 返回指定字符串的哈希摘要
 	def self.digest(string)
