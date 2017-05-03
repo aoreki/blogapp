@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #edit和update之前需要先login
-  before_action :login_user,only:[:edit,:update]
+  before_action :login_user,only:[:edit,:update,:index]
   #只能修改自己的信息
   before_action :correct_user,only:[:edit,:update]
 	def new
@@ -35,9 +35,12 @@ class UsersController < ApplicationController
     end
   end
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
   def index
-     @users = User.all
+     @users = User.paginate(page: params[:page])
   end
 
   private
