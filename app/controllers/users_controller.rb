@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def destroy
   end
   def index
+     @users = User.all
   end
 
   private
