@@ -9,6 +9,13 @@
 					<%= Time.now %>
 			</h1>
 		</section>
+		<% if login? && current_user.id == @user.id %>
+			<%= form_for(@micropost,class:"form-control") do |f| %>
+				<%= render 'shared/error_messages' ,record:@micropost %>
+				<%= f.text_area :content,class:"micropost-content" %>
+				<%= f.submit 'Post',class:"btn btn-primary col-xs-2" %>
+			<% end %>
+		<% end %>
 	</aside>
 	<div class="col-md-6">
 		<% if @user.microposts.any? %>

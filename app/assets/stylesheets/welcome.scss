@@ -87,6 +87,17 @@ aside {
 			display: block;
 		}
 	}
+	textarea {
+		margin-top: 50px;
+		margin-bottom: 10px;
+		width: 100%;
+		height: 80px;
+		float: left;
+		clear: left;
+	}
+	input.btn {
+		float: right;
+	}
 }
 
 /*avatar*/
@@ -108,7 +119,7 @@ margin-top: 15px;
 
 /*microposts*/
 .micropost {
-	background-color: #abc;
+	background-color: #F1E9C9;
 	margin-bottom: 10px;
 	span.user {
 		display: block;
@@ -122,3 +133,4 @@ margin-top: 15px;
 		margin-right: 20px;
 	}
 }
+

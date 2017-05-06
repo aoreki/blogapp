@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page:params[:page],per_page:10)
+    @micropost = @user.microposts.build
   	# debugger
   end
 
@@ -46,20 +47,16 @@ class UsersController < ApplicationController
   end
 
   private
+
 	  def user_params
 	  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
 	  end
-    def login_user
-      unless login?
-        session[:forwarding_url] = request.original_url if request.get?
-        flash[:danger] = 'Please Login First'
-        redirect_to new_session_path
-      end
-    end
+
     def correct_user
       @user = User.find_by(id:params[:id])
       redirect_to user_path(@user) unless current_user == @user
     end
+
     def admin_user
       redirect_to root_path unless current_user.admin?
     end
