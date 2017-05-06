@@ -21,3 +21,9 @@ User.create!(name: 'test',
 		password: password,
 		password_confirmation: password)
 end
+
+user = User.find(1)
+50.times do
+	content = Faker::Lorem.sentence(5)
+	 user.microposts.create!(content: content)
+end

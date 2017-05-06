@@ -81,6 +81,10 @@ aside {
 			letter-spacing: -1px;
 			margin-bottom: 3px;
 			margin-top: 0px;
+			clear: left;
+		}
+		img {
+			display: block;
 		}
 	}
 }
@@ -88,7 +92,6 @@ aside {
 /*avatar*/
 .gravatar {
 	float: left;
-	margin-right: 10px;
 }
 
 .gravatar_edit {
@@ -100,5 +103,22 @@ margin-top: 15px;
 	@extend .has-error;
 	.form-control {
 		color: $state-danger-text;
+	}
+}
+
+/*microposts*/
+.micropost {
+	background-color: #abc;
+	margin-bottom: 10px;
+	span.user {
+		display: block;
+		float: left;
+	}
+	span.content {
+		display: block;
+		clear: left;
+	}
+	p span {
+		margin-right: 20px;
 	}
 }

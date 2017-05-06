@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	#虚拟属性，随机令牌
 	attr_accessor :remember_token
+	has_many :microposts,dependent: :destroy
 
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: {maximum:255}, uniqueness: true

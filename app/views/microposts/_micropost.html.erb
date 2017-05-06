@@ -1,0 +1,14 @@
+<div class="micropost">
+	<span class="user">
+		<%= gravatar_for micropost.user,size:20 %>
+		<%= link_to micropost.user.name,micropost.user %>
+	</span>
+	<span class="content">
+		<%= micropost.content%>
+	</span>
+	<p>
+			<span><a href="#" class="glyphicon glyphicon-share-alt"></a></span>
+			<span><a href="#" class="glyphicon glyphicon-option-horizontal"></a></span>
+			<span><a href="#" class="glyphicon glyphicon-thumbs-up"></a></span>
+	</p>
+</div>
