@@ -1,12 +1,13 @@
 <aside class="col-md-4">
 	<section class="user_info">
-		<%= gravatar_for user,size:40 %>
-		<h1>
-			<%= user.name %><br/>
-			<%= user.email %><br/>
-			<%= user.created_at %><br/>
-			<%= Time.now %>
-		</h1>
+		<%= gravatar_for user,size:80 %>
+		<h2><%= link_to user.name,user_path(user) %></h2>
+
+		<ul class="nav nav-pills" role="tablist">
+			<li role="presentation"><a href="#">Following <span class="badge"><%= user.followings.count%></span></a></li>
+			<li role="presentation"><a href="#">Follower <span class="badge"><%= user.followers.count%></span></a></li>
+			<li role="presentation"><a href="#">Follow</a></li>
+		</ul>
 	</section>
 	<% if login? && current_user.id == user.id %>
 		<%= render 'microposts/post',micropost:micropost %>

@@ -2,6 +2,16 @@ class User < ApplicationRecord
 	#虚拟属性，随机令牌
 	attr_accessor :remember_token
 	has_many :microposts,dependent: :destroy
+	# has_many :active_relationships, class_name: "Relationship",foreign_key: "follower_id",
+	# 	dependent: :destroy
+	# has_many :passive_relationships, class_name: "Relationship",foreign_key: "followed_id",
+	# 	dependent: :destroy
+	# has_many :following, through: :active_relationships
+	# has_many :follower, through: :passive_relationships, source: :follower
+	has_and_belongs_to_many :followers,class_name: "User",join_table:"relationships",
+		foreign_key: "followed_id",association_foreign_key: "follower_id"
+	has_and_belongs_to_many :followings,class_name: "User",join_table:"relationships",
+		foreign_key: "follower_id",association_foreign_key: "followed_id"
 
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: {maximum:255}, uniqueness: true
@@ -29,4 +39,12 @@ class User < ApplicationRecord
 		return false if remember_digest.nil?
 		BCrypt::Password.new(remember_digest).is_password?(remember_token)
 	end
+
+	# def followings
+	# 	User.find_by_sql(["SELECT users.* from users INNER JOIN relationships ON users.id=relationships.followed_id WHERE relationships.follower_id = ?",id])
+	# end
+
+	# def followers
+	# 	User.find_by_sql(["SELECT users.* from users INNER JOIN relationships ON users.id=relationships.follower_id WHERE relationships.followed_id = ?",id])
+	# end
 end
