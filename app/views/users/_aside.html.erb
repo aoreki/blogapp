@@ -6,7 +6,13 @@
 		<ul class="nav nav-pills" role="tablist">
 			<li role="presentation"><a href="#">Following <span class="badge"><%= user.followings.count%></span></a></li>
 			<li role="presentation"><a href="#">Follower <span class="badge"><%= user.followers.count%></span></a></li>
-			<li role="presentation"><a href="#">Follow</a></li>
+			<% if user.id != current_user.id %>
+				<% if current_user.followings.include?(user) %>
+					<li role="presentation"><%= button_to 'unFollow',relationship_path, class: "btn btn-warning",params:{id:user.id},method: :delete %></li>
+				<% else %>
+					<li role="presentation"><%= button_to 'Follow',relationships_path, class: "btn btn-info",params:{id:user.id},method: :post %></li>
+				<% end %>
+			<% end %>
 		</ul>
 	</section>
 	<% if login? && current_user.id == user.id %>
