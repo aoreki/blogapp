@@ -20,6 +20,11 @@ class MicropostsController < ApplicationController
 	end
 	private
 		def micropost_params
-			params.require(:micropost).permit(:content)
+			params.require(:micropost).permit(:content,:picture)
+		end
+		def picture_size
+			if picture.size > 5.megabytes
+				errors.add(:picture, "should be less than 5MB")
+			end
 		end
 end

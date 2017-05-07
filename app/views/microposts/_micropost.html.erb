@@ -6,6 +6,7 @@
 	<span class="content">
 		<%= micropost.content%>
 	</span>
+	<%= image_tag micropost.picture.url,height: '120', width: '180' if micropost.picture? %>
 	<p>
 			<span><a href="#" class="glyphicon glyphicon-share-alt"></a></span>
 			<span><a href="#" class="glyphicon glyphicon-option-horizontal"></a></span>
