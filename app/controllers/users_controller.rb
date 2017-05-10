@@ -46,6 +46,16 @@ class UsersController < ApplicationController
      @users = User.paginate(page: params[:page])
   end
 
+  def follower
+    @users = User.find(params[:id]).followers.paginate(page: params[:page])
+    render 'index'
+  end
+
+  def following
+    @users = User.find(params[:id]).followings.paginate(page: params[:page])
+    render 'index'
+  end
+
   private
 
 	  def user_params

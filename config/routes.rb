@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/logout',to:'sessions#destroy'
   get '/home',to:'welcome#home'
+  get '/users/:id/follower',to:'users#follower'
+  get '/users/:id/following',to:'users#following'
   resources :articles do
   	resources :comments
   end

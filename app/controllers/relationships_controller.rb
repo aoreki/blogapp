@@ -8,6 +8,7 @@ class RelationshipsController < ApplicationController
 
 		end
 	end
+	
 	def destroy
 		@relationship = Relationship.find_by(followed_id:params[:id],follower_id:current_user.id)
 		@relationship.destroy
