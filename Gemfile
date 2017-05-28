@@ -48,6 +48,15 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console','3.3.0'
   gem 'mysql2'
+  gem 'capistrano','3.8.1'
+  gem 'capistrano-bundler','1.2.0'
+  gem 'capistrano-passenger', '>= 0.2.0'
+
+  # Remove the following if your app does not use Rails
+  gem 'capistrano-rails','1.2.3'
+
+  # Remove the following if your server does not use RVM
+  gem 'capistrano-rvm','0.1.2'
 end
 
 group :test do
