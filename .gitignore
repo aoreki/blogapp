@@ -22,3 +22,7 @@
 
 # Ignore assets
 /public/assets/*
+
+#Ignore cap deploy
+/config/deploy.rb
+/config/deploy/*
