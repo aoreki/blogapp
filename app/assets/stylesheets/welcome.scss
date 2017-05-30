@@ -131,8 +131,13 @@ margin-top: 15px;
 		display: block;
 		clear: left;
 	}
-	p span {
-		margin-right: 20px;
+	.micropost-footer {
+		a {
+			margin-right: 20px;
+		}
+	}
+	.comments {
+		background-color: #FFEFDB
 	}
 }
 

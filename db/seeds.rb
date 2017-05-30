@@ -27,3 +27,15 @@ users = User.order(:created_at).take(3)
 	content = Faker::Lorem.sentence(5)
 	users.each { |user| user.microposts.create!(content: content) }
 end
+
+for i in 1..5
+	for j in 1..5
+		Relationship.create!(follower_id:i,followed_id:j) unless i==j
+	end
+end
+
+microposts = Micropost.order(created_at: :desc).take(10)
+10.times do
+	content = Faker::Lorem.sentence(5)
+	microposts.each { |micropost| micropost.comments.create!(content: content,user_id:1) }
+end

@@ -2,6 +2,7 @@ class User < ApplicationRecord
 	#虚拟属性，随机令牌
 	attr_accessor :remember_token
 	has_many :microposts,dependent: :destroy
+	has_many :comments,dependent: :destroy
 	# has_many :active_relationships, class_name: "Relationship",foreign_key: "follower_id",
 	# 	dependent: :destroy
 	# has_many :passive_relationships, class_name: "Relationship",foreign_key: "followed_id",

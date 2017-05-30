@@ -1,0 +1,6 @@
+<div class="comments">
+  <p>Comments:</p>
+	<% @comments.each do |comment| %>
+		<%= render 'comment',comment:comment,micropost:@micropost %>
+	<% end %>
+</div>
