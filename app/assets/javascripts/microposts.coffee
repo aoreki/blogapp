@@ -3,13 +3,27 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-    $('.glyphicon-option-horizontal').click (event) ->
-    		current = $(this)
-    		micropost_id = current.data("id")
-    		event.preventDefault();
-    		if current.parent().siblings(".comments").length > 0
-    				current.parent().siblings(".comments").remove()
-    		else
-    				$.get "/comments?micropost_id=#{micropost_id}", (data) ->
-    			      current.parent().after data
 
+	#点击显示与隐藏评论
+	$('.glyphicon-option-horizontal').click (event) ->
+		current = $(this)
+		micropost_id = current.data("id")
+		event.preventDefault();
+		if current.parent().siblings(".comments").length > 0
+			current.parent().siblings(".comments").remove()
+		else
+			$.get "/comments?micropost_id=#{micropost_id}", (data) ->
+				current.parent().after data
+
+#添加评论
+$(document).on 'click','.comments a.btn',()->
+	$.ajax({
+            url:'/comments',
+            type:'POST',
+            data:$('#new_comment').serialize(),
+            success:(data)->$('.comments p').after(data)
+          })
+	$('.comment-content').val('')
+	node = $(this).parent().siblings('p').children('.glyphicon-option-horizontal')
+	num = parseInt(/\d+/.exec(node.html())[0]) + 1
+	node.html("(#{num})")

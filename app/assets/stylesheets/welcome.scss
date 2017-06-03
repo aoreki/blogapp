@@ -139,5 +139,17 @@ margin-top: 15px;
 	.comments {
 		background-color: #FFEFDB
 	}
+	.comment,p {
+		clear: left;
+	}
+	.comment-content{
+		width:70%;
+		clear: left;
+		display: block;
+	}
+	.btn {
+		clear:right;
+		display: block;
+	}
 }
 
