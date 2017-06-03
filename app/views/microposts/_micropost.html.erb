@@ -9,8 +9,11 @@
 	<%= image_tag micropost.picture.url,height: '120', width: '180' if micropost.picture? %>
 	<p class="micropost-footer">
 			<%= link_to '','#',class:"glyphicon glyphicon-share-alt" %>
+
 			<%= link_to "(#{micropost.comments.count})",'#',class:"glyphicon glyphicon-option-horizontal" ,data:{id:micropost.id}%>
-			<%= link_to '','#',class:"glyphicon glyphicon-thumbs-up" %>
+
+			<%= link_to "(#{micropost.thumbup})",'#',class:"glyphicon glyphicon-thumbs-up" ,data:{id:micropost.id} %>
+
 			<% if login? && micropost.user.id == current_user.id %>
 				<%= link_to '',micropost_path(micropost),class:"glyphicon glyphicon-trash",method: :delete,data:{confirm:'Sure?'} %>
 			<% end %>

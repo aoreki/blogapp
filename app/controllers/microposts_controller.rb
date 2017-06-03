@@ -18,6 +18,14 @@ class MicropostsController < ApplicationController
 		@micropost.destroy
 		redirect_to current_user
 	end
+
+	def thumbup
+		@micropost = Micropost.find(params[:id])
+		num = @micropost.thumbup + 1
+		@micropost.update_columns(thumbup:num)
+		render nothing:true
+	end
+
 	private
 		def micropost_params
 			params.require(:micropost).permit(:content,:picture)

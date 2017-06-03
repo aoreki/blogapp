@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-
 	#点击显示与隐藏评论
 	$('.glyphicon-option-horizontal').click (event) ->
 		current = $(this)
@@ -14,6 +13,16 @@ $(document).ready ->
 		else
 			$.get "/comments?micropost_id=#{micropost_id}", (data) ->
 				current.parent().after data
+	#点赞
+	$('.glyphicon-thumbs-up').click (event) ->
+		micropost_id = $(this).data("id")
+		event.preventDefault();
+		$.ajax({
+            url:"/microposts/#{micropost_id}/thumbup",
+            type:'POST'
+          })
+		num = parseInt(/\d+/.exec($(this).html())[0]) + 1
+		$(this).html("(#{num})")
 
 #添加评论
 $(document).on 'click','.comments a.btn',()->

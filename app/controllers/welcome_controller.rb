@@ -7,7 +7,6 @@ class WelcomeController < ApplicationController
   	ids = @user.followings.pluck(:id)
   	ids << current_user.id
   	@micropost = @user.microposts.build
-  	# @microposts = @user.microposts.paginate(page:params[:page],per_page:5)
   	@microposts = Micropost.where(user_id: ids).paginate(page:params[:page],per_page:5)
   end
 end

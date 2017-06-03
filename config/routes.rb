@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/home',to:'welcome#home'
   get '/users/:id/follower',to:'users#follower'
   get '/users/:id/following',to:'users#following'
+  post '/microposts/:id/thumbup',to: 'microposts#thumbup'
   resources :users
   resources :sessions
   resources :microposts,only:[:create,:destroy]
