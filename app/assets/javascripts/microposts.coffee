@@ -44,6 +44,20 @@ $(document).on 'click','.comments a.btn',()->
 	num = parseInt(/\d+/.exec(node.html())[0]) + 1
 	node.html("(#{num})")
 
+#评论翻页
+$(document).on 'click','.comments .pagination a',(event)->
+	event.preventDefault()
+	comments = $(this).parents('.comments')
+	href = $(this).attr('href')
+	node = $(this).parents('.micropost')
+	$.ajax({
+            url:href,
+            type:'get',
+            success:(data)->
+            	comments.remove()
+            	node.append(data)
+          })
+
 #转发ajax
 $(document).on 'click','.modal-footer .btn-primary',()->
 	$('.modal-content form').submit()

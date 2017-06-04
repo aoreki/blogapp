@@ -4,4 +4,5 @@
 	<% @comments.each do |comment| %>
 		<%= render 'comment',comment:comment,micropost:@micropost %>
 	<% end %>
+	<%= will_paginate @comments,previous_label:"<",next_label:">" %>
 </div>

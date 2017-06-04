@@ -1,5 +1,5 @@
 <h1>Users</h1>
-<%= will_paginate %>
+<%= will_paginate @users,previous_label:"Previous",next_label:"Next"%>
 <ul class="users">
 	<% @users.each do |user| %>
 	<li>
@@ -12,4 +12,4 @@
 	<% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @users,previous_label:"Previous",next_label:"Next"%>

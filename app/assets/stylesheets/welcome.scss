@@ -137,7 +137,10 @@ margin-top: 15px;
 		}
 	}
 	.comments {
-		background-color: #FFEFDB
+		background-color: #FFEFDB;
+		.pagination {
+			margin: 0 0 0 0;
+		}
 	}
 	.comment,p {
 		clear: left;
@@ -161,6 +164,7 @@ margin-top: 15px;
 	background-color: #CCCCCC;
 }
 
+/* modal*/
 .modal-content textarea {
 	width: 100%;
 }
