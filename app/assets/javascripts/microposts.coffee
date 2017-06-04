@@ -24,6 +24,13 @@ $(document).ready ->
 		num = parseInt(/\d+/.exec($(this).html())[0]) + 1
 		$(this).html("(#{num})")
 
+	#转发按钮
+	$('.glyphicon-share-alt').click (event) ->
+		micropost_id = $(this).data("id")
+		$('.modal-body').html($(this).parent().parent().html())
+		$('#micropost_source_id').val(micropost_id)
+
+
 #添加评论
 $(document).on 'click','.comments a.btn',()->
 	$.ajax({
@@ -36,3 +43,7 @@ $(document).on 'click','.comments a.btn',()->
 	node = $(this).parent().siblings('p').children('.glyphicon-option-horizontal')
 	num = parseInt(/\d+/.exec(node.html())[0]) + 1
 	node.html("(#{num})")
+
+#转发ajax
+$(document).on 'click','.modal-footer .btn-primary',()->
+	$('.modal-content form').submit()

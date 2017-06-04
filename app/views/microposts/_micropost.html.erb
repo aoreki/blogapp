@@ -1,14 +1,19 @@
 <div class="micropost">
-	<span class="user">
-		<%= gravatar_for micropost.user,size:20 %>
+  <%= content_tag :span,class:"user" do %>
+  	<%= gravatar_for micropost.user,size:20 %>
 		<%= link_to micropost.user.name,micropost.user %>
-	</span>
-	<span class="content">
-		<%= micropost.content%>
-	</span>
+  <% end %>
+
+	<%= content_tag(:span,micropost.content,class:"content") %>
+	<% unless micropost.source_id.nil? %>
+		<%= content_tag(:span,class:"content") do %>
+			<%= render 'microposts/micropost',micropost: micropost.source%>
+		<% end %>
+	<% end %>
+
 	<%= image_tag micropost.picture.url,height: '120', width: '180' if micropost.picture? %>
 	<p class="micropost-footer">
-			<%= link_to '','#',class:"glyphicon glyphicon-share-alt" %>
+			<%= link_to '','#myModal',class:"glyphicon glyphicon-share-alt" ,data:{toggle:"modal",id:micropost.id}%>
 
 			<%= link_to "(#{micropost.comments.count})",'#',class:"glyphicon glyphicon-option-horizontal" ,data:{id:micropost.id}%>
 

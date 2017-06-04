@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603081148) do
+ActiveRecord::Schema.define(version: 20170604050222) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170603081148) do
     t.datetime "updated_at",             null: false
     t.string   "picture"
     t.integer  "thumbup",    default: 0
+    t.integer  "source_id"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end

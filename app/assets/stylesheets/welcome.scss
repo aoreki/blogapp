@@ -120,7 +120,7 @@ margin-top: 15px;
 }
 
 /*microposts*/
-.micropost {
+@mixin micropost {
 	background-color: #F1E9C9;
 	margin-bottom: 10px;
 	span.user {
@@ -151,5 +151,17 @@ margin-top: 15px;
 		clear:right;
 		display: block;
 	}
+}
+
+.micropost,.modal-body {
+	@include micropost
+}
+
+.micropost .content .micropost {
+	background-color: #CCCCCC;
+}
+
+.modal-content textarea {
+	width: 100%;
 }
 
