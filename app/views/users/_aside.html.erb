@@ -1,32 +1,32 @@
 <aside class="col-md-4">
-	<section class="user_info">
-		<%= gravatar_for user,size:80 %>
-		<h2><%= link_to user.name,user_path(user) %></h2>
+  <section class="user_info">
+    <%= gravatar_for user,size:80 %>
+    <h2><%= link_to user.name,user_path(user) %></h2>
 
-		<ul class="nav nav-pills" role="tablist">
-			<li role="presentation">
-				<%= link_to "/users/#{user.id}/following" do %>
-					<%= 'Following' %>
-					<%= content_tag :span,user.followings.count,class: "badge" %>
-				<% end %>
-			</li>
-			<li role="presentation">
-				<%= link_to "/users/#{user.id}/follower" do %>
-					<%= 'Follower' %>
-					<%= content_tag :span,user.followers.count,class: "badge" %>
-				<% end %>
-			</li>
-			
-			<% if user.id != current_user.id %>
-				<% if current_user.followings.include?(user) %>
-					<li role="presentation"><%= button_to 'unFollow',relationship_path, class: "btn btn-warning",params:{id:user.id},method: :delete %></li>
-				<% else %>
-					<li role="presentation"><%= button_to 'Follow',relationships_path, class: "btn btn-info",params:{id:user.id},method: :post %></li>
-				<% end %>
-			<% end %>
-		</ul>
-	</section>
-	<% if login? && current_user.id == user.id %>
-		<%= render 'microposts/post',micropost:micropost %>
-	<% end %>
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation">
+        <%= link_to "/users/#{user.id}/following" do %>
+          <%= 'Following' %>
+          <%= content_tag :span,user.followings.count,class: "badge" %>
+        <% end %>
+      </li>
+      <li role="presentation">
+        <%= link_to "/users/#{user.id}/follower" do %>
+          <%= 'Follower' %>
+          <%= content_tag :span,user.followers.count,class: "badge" %>
+        <% end %>
+      </li>
+      
+      <% if user.id != current_user.id %>
+        <% if current_user.followings.include?(user) %>
+          <li role="presentation"><%= button_to 'unFollow',relationship_path, class: "btn btn-warning",params:{id:user.id},method: :delete %></li>
+        <% else %>
+          <li role="presentation"><%= button_to 'Follow',relationships_path, class: "btn btn-info",params:{id:user.id},method: :post %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+  <% if login? && current_user.id == user.id %>
+    <%= render 'microposts/post',micropost:micropost %>
+  <% end %>
 </aside>

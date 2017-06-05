@@ -1,12 +1,12 @@
 <div class="row">
-	<%=render 'users/aside',user:@user,micropost:@micropost %>
-	<div class="col-md-6">
-		<% if @user.microposts.any? %>
-			<h3>Microposts (<%= @user.microposts.count %>)</h3>
-			<%= render @microposts %>
-			<%= will_paginate @microposts,previous_label:"Previous",next_label:"Next",inner_window:1,outer_window:1 %>
-		<% end %>
-	</div>
-	<%= render 'comments/zhuanfa'%>
+  <%=render 'users/aside',user:@user,micropost:@micropost %>
+  <div class="col-md-6">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <%= render @microposts %>
+      <%= will_paginate @microposts,previous_label:"Previous",next_label:"Next",inner_window:1,outer_window:1 %>
+    <% end %>
+  </div>
+  <%= render 'comments/zhuanfa'%>
 </div>
 

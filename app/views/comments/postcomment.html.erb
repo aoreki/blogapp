@@ -1,9 +1,9 @@
 <div class="comment">
-	<span class="user">
-		<%= gravatar_for @comment.user,size:20 %>
-		<%= link_to @comment.user.name,@comment.user %>
-	</span>
-	<span class="content">
-		<%= @comment.content%>
-	</span>
+  <span class="user">
+    <%= gravatar_for @comment.user,size:20 %>
+    <%= link_to @comment.user.name,@comment.user %>
+  </span>
+  <span class="content">
+    <%= @comment.content%>
+  </span>
 </div>

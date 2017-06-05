@@ -1,15 +1,15 @@
 <h1>Users</h1>
 <%= will_paginate @users,previous_label:"Previous",next_label:"Next"%>
 <ul class="users">
-	<% @users.each do |user| %>
-	<li>
-		<%= gravatar_for user, size: 50 %>
-		<%= link_to user.name, user %>
-		<% if current_user.admin? %>
-			| <%= link_to 'delete',user_path(user),method: :delete %>
-		<% end %>
-	</li>
-	<% end %>
+  <% @users.each do |user| %>
+  <li>
+    <%= gravatar_for user, size: 50 %>
+    <%= link_to user.name, user %>
+    <% if current_user.admin? %>
+      | <%= link_to 'delete',user_path(user),method: :delete %>
+    <% end %>
+  </li>
+  <% end %>
 </ul>
 
 <%= will_paginate @users,previous_label:"Previous",next_label:"Next"%>

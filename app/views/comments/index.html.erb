@@ -1,8 +1,8 @@
 <div class="comments">
   <%= render 'post',micropost:@micropost%>
   <p>Comments:</p>
-	<% @comments.each do |comment| %>
-		<%= render 'comment',comment:comment,micropost:@micropost %>
-	<% end %>
-	<%= will_paginate @comments,previous_label:"<",next_label:">" %>
+  <% @comments.each do |comment| %>
+    <%= render 'comment',comment:comment,micropost:@micropost %>
+  <% end %>
+  <%= will_paginate @comments,previous_label:"<",next_label:">" %>
 </div>

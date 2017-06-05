@@ -1,6 +1,6 @@
 <%= form_for(@comment,class:"form-control",html:{multipart:true}) do |f| %>
   <%= f.text_field :user_id,value:current_user.id,type:"hidden" %>
-	<%= f.text_field :micropost_id,value:micropost.id,type:"hidden" %>
-	<%= f.text_area :content,class:"comment-content" %>
+  <%= f.text_field :micropost_id,value:micropost.id,type:"hidden" %>
+  <%= f.text_area :content,class:"comment-content" %>
 <% end %>
 <%= content_tag(:a,'Comment',class:"btn btn-primary col-xs-2")%>
