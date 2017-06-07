@@ -1,21 +1,19 @@
 class CommentsController < ApplicationController
   def index
     @micropost = Micropost.find(params[:micropost_id])
-    @comments = @micropost.comments.paginate(page:params[:page],per_page:5)
+    @comments = @micropost.comments.paginate(page: params[:page], per_page: 5)
     @comment = @micropost.comments.build
-    render 'index',layout:false
+    render 'index', layout: false
   end
 
   def create
     @comment = Comment.create(comment_params)
-    if @comment.save
-      render 'comments/postcomment',layout:false
-    else
-    end
+    render 'comments/postcomment', layout: false if @comment.save
   end
+
   private
+
   def comment_params
-    params.require(:comment).permit(:content,:user_id,:micropost_id)
+    params.require(:comment).permit(:content, :user_id, :micropost_id)
   end
 end
-    

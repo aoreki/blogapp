@@ -4,21 +4,20 @@ module SessionsHelper
   end
 
   def current_user
-    #临时
+    # temp
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
-    #永久
+    # forever
     elsif cookies.signed[:user_id]
       user = User.find_by(id: cookies.signed[:user_id])
-      if user && user.authenticated?(cookies[:remember_token])
-        login user
-        @current_user = user
-      end
+      return unless user && user.authenticated?(cookies[:remember_token])
+      login user
+      @current_user = user
     end
   end
 
   def login?
-    !!current_user
+    current_user
   end
 
   def remember(user)
