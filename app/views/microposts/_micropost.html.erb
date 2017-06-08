@@ -7,7 +7,7 @@
   <%= content_tag(:span,micropost.content,class:"content") %>
   <% unless micropost.source_id.nil? %>
     <%= content_tag(:span,class:"content") do %>
-      <%= render 'microposts/micropost',micropost: micropost.source%>
+      <%= render 'microposts/micropost',micropost: micropost.source%> #FIXME
     <% end %>
   <% end %>
 

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @micropost = Micropost.find(params[:micropost_id])
+    @micropost = Micropost.includes(:comments).find(params[:micropost_id])
     @comments = @micropost.comments.paginate(page: params[:page], per_page: 5)
     @comment = @micropost.comments.build
     render 'index', layout: false
