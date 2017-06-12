@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :remember_token
 
   has_many :microposts, dependent: :destroy
@@ -13,10 +17,10 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: /.+@.+/ },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_nil: { on: :update }
-  has_secure_password
+  # has_secure_password
 
   def self.digest(string)
-    cost = 
+    cost =
       if ActiveModel::SecurePassword.min_cost
         BCrypt::Engine::MIN_COST
       else
@@ -38,5 +42,4 @@ class User < ApplicationRecord
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
-
 end

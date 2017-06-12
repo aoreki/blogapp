@@ -2,7 +2,7 @@
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if login? %>
+        <% if user_signed_in? %>
           <li><%= link_to "Home", home_path %></li>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
@@ -10,18 +10,18 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "Profile", user_path(current_user) %></li>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete%>
               </li>
             </ul>
           </li>
         <% else %>
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Log in", new_session_path %></li>
-          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
         <li><%= link_to "Help", 'http://guides.ruby-china.org/' %></li>
       </ul>

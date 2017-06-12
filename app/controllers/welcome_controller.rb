@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :login_user, only: [:home]
+  # before_action :login_user, only: [:home]
   def index; end
 
   def home

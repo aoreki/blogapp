@@ -19,7 +19,7 @@
 
       <%= link_to "(#{micropost.thumbup})",'#',class:"glyphicon glyphicon-thumbs-up" ,data:{id:micropost.id} %>
 
-      <% if login? && micropost.user.id == current_user.id %>
+      <% if user_signed_in? && micropost.user.id == current_user.id %>
         <%= link_to '',micropost_path(micropost),class:"glyphicon glyphicon-trash",method: :delete,data:{confirm:'Sure?'} %>
       <% end %>
   </p>

@@ -26,7 +26,7 @@
       <% end %>
     </ul>
   </section>
-  <% if login? && current_user.id == user.id %>
+  <% if user_signed_in? && current_user.id == user.id %>
     <%= render 'microposts/post',micropost:micropost %>
   <% end %>
 </aside>

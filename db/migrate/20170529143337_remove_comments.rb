@@ -1,5 +1,5 @@
 class RemoveComments < ActiveRecord::Migration[5.0]
   def change
-  	drop_table :comments
+    drop_table :comments
   end
 end
