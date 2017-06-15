@@ -58,59 +58,6 @@ $gray-medium-light: #eaeaea;
 	@include box_sizing;
 }
 
-/* sidebar */
-aside {
-	section.user_info {
-		margin-top: 20px;
-	}
-	section {
-		padding: 10px 0;
-		margin-top: 20px;
-		&:first-child {
-			border: 0;
-			padding-top: 0;
-		}
-		span {
-			display: block;
-			margin-bottom: 3px;
-			line-height: 1;
-		}
-		h2 {
-		}
-		img {
-			display: block;
-			margin-right: 20px;
-			margin-bottom: 20px;
-		}
-		ul {
-			clear: left;
-		}
-		.nav > li > a {
-			padding-left: 0px;
-		}
-	}
-	textarea {
-		margin-top: 50px;
-		margin-bottom: 10px;
-		width: 100%;
-		height: 80px;
-		float: left;
-		clear: left;
-	}
-	input.btn {
-		float: right;
-	}
-}
-
-/*avatar*/
-.gravatar {
-	float: left;
-}
-
-.gravatar_edit {
-margin-top: 15px;
-}
-
 /*error field*/
 .field_with_errors {
 	@extend .has-error;
@@ -119,53 +66,5 @@ margin-top: 15px;
 	}
 }
 
-/*microposts*/
-@mixin micropost {
-	background-color: #F1E9C9;
-	margin-bottom: 10px;
-	span.user {
-		display: block;
-		float: left;
-	}
-	span.content {
-		display: block;
-		clear: left;
-	}
-	.micropost-footer {
-		a {
-			margin-right: 20px;
-		}
-	}
-	.comments {
-		background-color: #FFEFDB;
-		.pagination {
-			margin: 0 0 0 0;
-		}
-	}
-	.comment,p {
-		clear: left;
-	}
-	.comment-content{
-		width:70%;
-		clear: left;
-		display: block;
-	}
-	.btn {
-		clear:right;
-		display: block;
-	}
-}
 
-.micropost,.modal-body {
-	@include micropost
-}
-
-.micropost .content .micropost {
-	background-color: #CCCCCC;
-}
-
-/* modal*/
-.modal-content textarea {
-	width: 100%;
-}
 

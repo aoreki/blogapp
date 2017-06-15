@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'welcome#index'
-  get '/home', to: 'welcome#home'
-
+  root 'welcome#home'
+  resources :welcome, only: [:index]
   resources :users, only: [:index] do
     member do
       get 'follower', 'following', 'show'

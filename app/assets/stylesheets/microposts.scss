@@ -1,3 +1,55 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*microposts*/
+@mixin micropost {
+  background-color: #F1E9C9;
+  margin-bottom: 10px;
+  span.user {
+    display: block;
+    float: left;
+  }
+  span.content {
+    display: block;
+    clear: left;
+  }
+  .micropost-footer {
+    a {
+      margin-right: 20px;
+    }
+  }
+  .comments {
+    background-color: #FFEFDB;
+    .pagination {
+      margin: 0 0 0 0;
+    }
+  }
+  .comment,p {
+    clear: left;
+  }
+  .comment-content{
+    width:70%;
+    clear: left;
+    display: block;
+  }
+  .btn {
+    clear:right;
+    display: block;
+  }
+}
+
+.micropost,.modal-body {
+  @include micropost
+}
+
+.micropost .content .micropost {
+  background-color: #CCCCCC;
+}
+
+/* modal*/
+.modal-content textarea {
+  width: 100%;
+}

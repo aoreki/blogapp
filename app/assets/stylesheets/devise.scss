@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.registration,.sessions {
+  .actions {
+    text-align: center;
+    .btn {
+      width: 50%;
+    }
+  }
+}
+
+.registration {
+  .actions {
+    margin-top: 20px;
+  }
+}
+
+.sessions {
+  height: 400px;
+}
